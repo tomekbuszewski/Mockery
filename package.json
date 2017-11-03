@@ -1,0 +1,15 @@
+{
+  "name": "Mockery",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Tomek Buszewski <tomek.buszewski@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0"
+  }
+}

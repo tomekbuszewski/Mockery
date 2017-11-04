@@ -1,6 +1,6 @@
 # Mockery
 ## About
-Mockery is a simple and straight-forward server that mocks responses from an API. Be it REST or GraphQL, if it can be represented in JSON format, is can be mocked.
+Mockery is a simple and straight-forward server that mocks responses from an API. Be it REST or GraphQL, if it can be represented in JSON format, it can be mocked.
 
 ## Requirements
 Practically none, newest Node is probably a good idea (I am using 8.8.1 here), but I guess there's nothing so complex that older versions can't handle.
@@ -10,7 +10,7 @@ First, install the dependencies:
 
 ```
 yarn
-# npm I // or using npm
+# npm i // or using npm
 ```
 
 Then just run `index.js` with `node`:

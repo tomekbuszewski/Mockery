@@ -22,7 +22,7 @@ const getFile = path => fs.readFileSync(`./mocks/${path}`, 'utf-8');
 /*
 Get methods
  */
-app.get('/:path/:mock', (req, res) => {
+app.any('/:path/:mock', (req, res) => {
   res.send(getFile(req.url));
 });
 

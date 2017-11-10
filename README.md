@@ -21,6 +21,8 @@ node index.js
 
 There you have it. Mockery is up and running at `http://localhost:9000`. 
 
+Main address will show you list of available directories to take mocks from, each directory will show the mocks. 
+
 ### Adding own mocks
 Each mock is kept in `mocks` directory. There you can have another directory that will keep user-defined mocks. Let's say, you work with GraphQL and need to mock a response received from a query. Just create `graphql` directory inside `mocks` and a file, for example `query.json` inside. Fill the file and point your application to `http://localhost:9000/graphql/query.json`. 
 

@@ -1,38 +1,45 @@
 import express from 'express';
-import fs from 'fs';
+import { readFileSync, readdirSync} from 'fs';
 
 /*
 App initialization
  */
 const app = express();
 
-const listFiles = path => {
-  const files = fs.readdirSync(`./mocks/${path}`);
-  const ret = [];
+/*
+Functions
+ */
 
-  for (const file of files) {
-    ret.push(`<li><a href="${path}/${file}">${file}</a></li>`);
-  };
+/**
+ * Function for listing directories
+ *
+ * @param {string} path - path to be listed
+ * @returns {string} - unordered list of paths
+ */
+const listDir = (path) => {
+  const list = readdirSync(`./mocks/${path}`);
+  const url = path => `${path}`.replace('//', '/'); // replacing double slash
 
-  return `<ul>${ret.join('')}</ul>`;
+  return `<h2>Available:</h2><ul>${list.map(item => `<li><a href="${url(`${path}/${item}`)}">${item}</a></li>`).join(' ')}</ul>`;
 };
 
-const getFile = path => fs.readFileSync(`./mocks/${path}`, 'utf-8');
+/**
+ * Function for getting file contents
+ * @param {string} path - path for file
+ * @returns {string} file contents parsed as utf-8 string
+ */
+const getFile = path => readFileSync(`./mocks/${path}`, 'utf-8');
 
 /*
 Get methods
  */
-app.get('**.ico', (req, res) => res.send(''));
+app.get('**.ico', (req, res) => res.send('')); // Favicon
 
-app.all('/:path/:mock', (req, res) => {
-  res.send(getFile(req.url));
-});
+app.get('/', (req, res) => res.send(listDir('/'))); // Main dir
 
-app.get('/:path', (req, res) => {
-  const content = listFiles(req.url);
+app.all('/:path/:mock', (req, res) => res.send(getFile(req.url))); // Given mock
 
-  res.send(content);
-});
+app.get('/:path', (req, res) => res.send(listDir(req.url))); // Subdir
 
 app.listen(9000);
 console.log('Mockery is up and running at http://localhost:9000');

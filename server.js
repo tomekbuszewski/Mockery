@@ -22,6 +22,8 @@ const getFile = path => fs.readFileSync(`./mocks/${path}`, 'utf-8');
 /*
 Get methods
  */
+app.get('**.ico', (req, res) => res.send(''));
+
 app.all('/:path/:mock', (req, res) => {
   res.send(getFile(req.url));
 });

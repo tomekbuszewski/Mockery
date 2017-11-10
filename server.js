@@ -9,7 +9,6 @@ const app = express();
 /*
 Functions
  */
-
 /**
  * Function for listing directories
  *

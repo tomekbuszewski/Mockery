@@ -1,5 +1,5 @@
 import express from 'express';
-import { readFileSync, readdirSync} from 'fs';
+import { readFileSync, readdirSync } from 'fs';
 
 /*
 App initialization
@@ -9,7 +9,6 @@ const app = express();
 /*
 Functions
  */
-
 /**
  * Function for listing directories
  *

@@ -11,7 +11,7 @@ const listFiles = path => {
   const ret = [];
 
   for (const file of files) {
-    ret.push(`<li><a href="api/${file}">${file}</a></li>`);
+    ret.push(`<li><a href="${path}/${file}">${file}</a></li>`);
   };
 
   return `<ul>${ret.join('')}</ul>`;
@@ -22,7 +22,7 @@ const getFile = path => fs.readFileSync(`./mocks/${path}`, 'utf-8');
 /*
 Get methods
  */
-app.any('/:path/:mock', (req, res) => {
+app.all('/:path/:mock', (req, res) => {
   res.send(getFile(req.url));
 });
 
@@ -33,3 +33,4 @@ app.get('/:path', (req, res) => {
 });
 
 app.listen(9000);
+console.log('Mockery is up and running at http://localhost:9000');

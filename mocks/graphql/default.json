@@ -1,0 +1,25 @@
+{
+  "data": {
+    "lookup": {
+      "artist": {
+        "name": "Nirvana",
+        "releaseGroups": {
+          "edges": [
+            {
+              "node": {
+                "title": "Nevermind",
+                "firstReleaseDate": "1991-09-23"
+              }
+            },
+            {
+              "node": {
+                "title": "In Utero",
+                "firstReleaseDate": "1993-09-21"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
